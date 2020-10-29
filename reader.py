@@ -16,12 +16,16 @@ rc = None
 with open(os.devnull) as nul:
 	rc = subprocess.call([which, pytesseract.pytesseract.tesseract_cmd], stdout=nul, stderr=nul)
 if rc != 0:
+	print('Tesseract not found in PATH. Checking TESSERACT_CMD...')
 	tess_cmd = os.environ.get('TESSERACT_CMD', '')
 	if not Path(tess_cmd).is_file():
-			print('Invalid value of TESSERACT_CMD! Set its value to the location of the "tesseract" executable.', file=stderr)
+			print('Invalid value of TESSERACT_CMD! Set its value to the location of the "tesseract" executable, or add it to PATH.', file=stderr)
 			sys.exit(1)
 	else:
+		print('Using TESSERACT_CMD.')
 		pytesseract.pytesseract.tesseract_cmd = tess_cmd
+else:
+	print('Tesseract found in PATH.')
 
 # Get the file information
 PDF_file = input('Enter the name of the file: ')
@@ -79,7 +83,7 @@ with open(outfile, "a") as f:
 	print(f'Writing OCR output to {outfile}...')
 
 	# Iterate from 1 to total number of pages
-	for i in range(1, filelimit):
+	for i in range(1, filelimit + 1):
 		# Set filename to recognize text from 
 		# Again, these files will be: 
 		# page_1.jpg 
