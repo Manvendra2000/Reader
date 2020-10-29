@@ -34,37 +34,37 @@ PDF_file = input('Enter the name of the file: ')
 image_counter = 0
 if Path(PDF_file).is_file():
 	# Part #1: Converting PDF to images
-	with open(PDF_file, 'rb') as book:
-		# Store all the pages of the PDF in a variable 
-		pages = convert_from_path(PDF_file, 500)
+	
+	# Store all the pages of the PDF in a variable 
+	pages = convert_from_path(PDF_file, 500)
 
-		# Counter to store images of each page of PDF to image
-		image_counter = 1
+	# Counter to store images of each page of PDF to image
+	image_counter = 1
 
-		# Create output folders if they don't exist
-		dirs = [os.path.join(os.getcwd(), 'out', 'imgs'), os.path.join(os.getcwd(), 'out', 'txt')]
-		for directory in dirs:
-			if not Path(directory).is_dir():
-				os.makedirs(directory)
+	# Create output folders if they don't exist
+	dirs = [os.path.join(os.getcwd(), 'out', 'imgs'), os.path.join(os.getcwd(), 'out', 'txt')]
+	for directory in dirs:
+		if not Path(directory).is_dir():
+			os.makedirs(directory)
 
-		# Iterate through all the pages stored above
-		print('Generating images from pages...')
-		for page in pages:
-			# Declaring filename for each page of PDF as JPG 
-			# For each page, filename will be: 
-			# PDF page 1 -> page_1.jpg 
-			# PDF page 2 -> page_2.jpg 
-			# PDF page 3 -> page_3.jpg 
-			# .... 
-			# PDF page n -> page_n.jpg 
-			filename = f'page_{image_counter}.jpg'
+	# Iterate through all the pages stored above
+	print('Generating images from pages...')
+	for page in pages:
+		# Declaring filename for each page of PDF as JPG 
+		# For each page, filename will be: 
+		# PDF page 1 -> page_1.jpg 
+		# PDF page 2 -> page_2.jpg 
+		# PDF page 3 -> page_3.jpg 
+		# .... 
+		# PDF page n -> page_n.jpg 
+		filename = f'page_{image_counter}.jpg'
 
-			# Save the image of the page in system
-			page.save(os.path.join(dirs[0], filename), 'JPEG')
-			print(f'{os.path.join(dirs[0], filename)} created!')
+		# Save the image of the page in system
+		page.save(os.path.join(dirs[0], filename), 'JPEG')
+		print(f'{os.path.join(dirs[0], filename)} created!')
 
-			# Increment the counter to update the filename for the next page
-			image_counter += 1
+		# Increment the counter to update the filename for the next page
+		image_counter += 1
 else:
 	print('Error: File inaccessible!', file=stderr) # Couldn't read the file
 	sys.exit(2)
