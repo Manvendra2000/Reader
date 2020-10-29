@@ -32,7 +32,7 @@ PDF_file = input('Enter the name of the file: ')
 
 # Start the application
 image_counter = 0
-if Path(f'./{PDF_file}').is_file():
+if Path(PDF_file).is_file():
 	# Part #1: Converting PDF to images
 	with open(PDF_file, 'rb') as book:
 		# Store all the pages of the PDF in a variable 
