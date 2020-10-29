@@ -6,7 +6,7 @@ from pdf2image import convert_from_path
 import os 
 
 # Path of the pdf 
-PDF_file = "C:\Users\Manvendra\Desktop\New folder\d.pdf"
+PDF_file = "C:\\Users\\Manvendra\\Desktop\\New folder\\d.pdf"
 
 ''' 
 Part #1 : Converting PDF to images 
