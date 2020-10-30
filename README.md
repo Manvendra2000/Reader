@@ -20,6 +20,12 @@ E. g.
   set "TESSERACT_CMD=C:\Program Files\Tesseract-OCR\tesseract.exe"
   ```
 
+Windows users would also need to have Poppler installed and added to PATH, which can be downloaded [here](https://blog.alivate.com.au/poppler-windows/).
+Alternatively, it can be installed using Miniconda/Anaconda.
+```
+conda install -c conda-forge poppler
+```
+
 Once that has been finalized, install the other Python requirements.
 ```
 pip3 install -r requirements.txt
