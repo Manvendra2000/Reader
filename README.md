@@ -9,7 +9,7 @@ as the location of the Tesseract executable binary.
 E. g.
 - Bash
   ``` bash
-  TESSERACT_CMD='/path/to/tesseract'
+  export TESSERACT_CMD='/path/to/tesseract'
   ```
 - PowerShell
   ``` powershell
