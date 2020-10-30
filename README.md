@@ -1,4 +1,4 @@
-# Tesseract PDF Reader OCR
+# Tesseract PDF OCR
 A simple application that reads a PDF file
 and parses the text using the Tesseract OCR.
 
